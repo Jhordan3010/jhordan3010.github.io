@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Subredes</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluir jsPDF desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Gestión de Subredes</h2>
+        <form id="formularioSubredes">
+            <div class="form-group">
+                <label for="direccionRed">Dirección de Red:</label>
+                <input type="text" id="direccionRed" name="direccionRed" placeholder="192.168.23.0/24" required>
+            </div>
+            <div class="form-group">
+                <label for="prefijoSubred">Prefijo de Subred:</label>
+                <input type="number" id="prefijoSubred" name="prefijoSubred" min="0" max="32" placeholder="24" required>
+            </div>
+            <div class="form-group">
+                <label for="numeroSubredes">Número de Subredes:</label>
+                <input type="number" id="numeroSubredes" name="numeroSubredes" min="1" placeholder="4" required>
+            </div>
+            <div id="contenedorEntradasSubredes"></div>
+            <div class="form-buttons">
+                <button type="button" onclick="generarEntradasSubredes()">Generar Entradas de Subredes</button>
+                <button type="button" onclick="calcularSubredes()">Calcular Subredes</button>
+            </div>
+        </form>
+        <div id="resultado" class="result">
+            <h3>Resultados</h3>
+            <table id="tablaSubredes">
+                <thead>
+                    <tr>
+                        <th>Nombre de Subred</th>
+                        <th>Dirección de Subred</th>
+                        <th>Rango de Hosts</th>
+                        <th>Dirección de Broadcast</th>
+                        <th>Última IP</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaBody">
+                    <!-- Aquí se mostrarán los resultados -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
